@@ -1,0 +1,20 @@
+[config]
+
+
+# kitty
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/colors.conf'
+post_hook = 'pkill -SIGUSR1 kitty'
+
+# hyprland 
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/colors.conf'
+post_hook = 'hyprctl reload'
+
+# waybar
+[templates.waybar]
+input_path = '~/.config/matugen/templates/matugen-waybar.css'
+output_path = '~/.config/waybar/colors.conf'
+post_hook = 'pkill -SIGUSR2 waybar'
