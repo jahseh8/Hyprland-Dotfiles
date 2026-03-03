@@ -2,83 +2,38 @@
 {
   "layer": "top",
   "position": "top",
+
+  "exclusive": false,
   "fixed-center": true,
+  "spacing": 8,
 
   "margin-top": 6,
   "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
 
   "modules-left": [],
   "modules-center": [
     "clock",
-    "hyprland/submap",
+    "custom/separator",
     "hyprland/workspaces",
+    "custom/separator",
     "pulseaudio",
     "network",
     "custom/moonveil",
+    "tray"
   ],
   "modules-right": [],
 
-  /*----------Hyprland Submap-------------*/
-  "hyprland/submap": {
-    "format": "{}",
+  "custom/separator": {
+    "format": "│",
     "tooltip": false
   },
 
-  /*----------Hyprland Workspace----------*/
-  "hyprland/workspaces": {
-    "active-only": false,
-    "all-outputs": true,
-    "on-click": "activate",
-    "format": "{icon}",
-    "persistent-workspaces": {
-      "*": [1, 2, 3, 4, 5]
-    },
-    "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "十"
-    }
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
   },
 
-  /*---------------Clock------------------*/
-  "clock": {
-    "tooltip": false,
-    "format": "{:%H:%M}",
-    "interval": 1
-  },
-
-  /*---------------Network----------------*/
-  "network": {
-    "format-wifi": "󰤢",
-    "format-ethernet": "󰈀",
-    "format-disconnected": "󰤠",
-    "interval": 5,
-    "tooltip": false,
-    "on-click": "kitty nmtui"
-  },
-
-  /*---------------Pulseaudio-------------*/
-  "pulseaudio": {
-    "format": "{icon}",
-    "format-muted": "",
-    "format-icons": {
-      "default": ["", "", ""]
-    },
-    "tooltip": false,
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-  },
-
-  /*-----------Moonveil Center------------*/
-  "custom/moonveil": {
-    "format": " ",
-    "tooltip": "Moonveil Control Center",
-    "on-click": "bash ~/.config/control-center/launch"
-  }
+  /* keep your existing module configs below */
 }
