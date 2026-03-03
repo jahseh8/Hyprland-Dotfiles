@@ -1,242 +1,107 @@
-@import 'colors.conf'
+@import "colors.conf";
 
-* {
-    border: none;
-    border-radius: 0px;
-    font-family: "JetBrainsMono Nerd Font Propo";
-    font-weight: bold;
-    min-height: 0px;
-    padding: 0px;
-    margin: 0px;
-}
-
-/*----------Waybar Container-------------*/
-#waybar {
-    background-color: transparent;
-    padding: 6px;
-    border-radius: 14px;
-}
-
-/*----------Tooltip----------------------*/
-tooltip {
-    background: @bg0;
-    border: 1px solid @bg2;
-    border-radius: 12px;
-}
-
-tooltip label {
-    color: @fg;
-    padding: 6px;
-}
-
-/*----------Workspaces-------------------*/
-#workspaces {
-    background-color: @bg0;
-    padding: 5px 6px;
-    margin: 0 0 0 12px;
-    border-radius: 18px;
-    border: 1px solid @bg1;
-    color: @fg;
-}
-
-#workspaces button {
-    padding: 0px 4px;
-    margin: 0px 3px;
-    border-radius: 16px;
-    color: transparent;
-    background-color: @bg1;
-    transition: all 150ms ease-in-out;
-}
-
-/*----------Workspace Active-------------*/
-#workspaces button.active {
-    background-color: @fg;
-    color: @bg0;
-    min-width: 30px;
-    transition: all 150ms ease-in-out;
-}
-
-/*----------Workspace Hover--------------*/
-#workspaces button:hover {
-    background-color: @bg4;
-    color: @on_secondary;
-    border-radius: 16px;
-    min-width: 30px;
-}
-
-/*----------Workspace Urgent-------------*/
-#workspaces button.urgent {
-    background-color: @red;
-    color: @bg0;
-    border-radius: 16px;
-    transition: all 150ms ease-in-out;
-}
-
-
-/*----------Moonveil center-------------*/
-#custom-moonveil {
-    margin-right: 6px;
-    background-image: url("../assets/moonveil.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 35px;
-    padding-right: 15px;
-}
-
-/*----------Module Containers------------*/
-#battery,
-#pulseaudio,
-#network,
-#clock,
-#custom-notification {
-    background-color: @bg0;
-    padding: 0 15px;
-    margin: 0 0 0 12px;
-    border: 1px solid @bg2;
-    border-radius: 12px;
-    color: @on_surface;
-}
-
-/*----------Clock------------------------*/
-#clock {
-    color: @green;
-}
-
-/*----------Notification-----------------*/
-#custom-notification {
-    color: @fg;
-    margin: 0 12px;
-}
-
-/*----------Pulseaudio-------------------*/
-#pulseaudio {
-    color: @green;
-}
-
-/*----------Network----------------------*/
-#network {
-    color: @aqua;
-}
-
-/*----------Battery----------------------*/
-#battery {
-    color: @green;
-}
+/* reset */
 * {
   border: none;
-  border-radius: 0px;
-  font-family: "Rubik", "JetBrainsMono Nerd Font Propo",
-               "Noto Sans CJK JP", "Noto Sans CJK KR";
-  font-size: 14px;
-  min-height: 0;
+  border-radius: 0;
   padding: 0;
   margin: 0;
+  min-height: 0;
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-weight: 700;
+  font-size: 14px;
 }
 
-/* Center container */
-.modules-center {
-  background: @bg0;
-  padding: 6px 12px;
-  border-radius: 28px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Window title */
 window#waybar {
   background: transparent;
 }
 
-/* Tooltip */
-tooltip {
-  background: @bg2;
-  border: 1px solid @bg3;
-  border-radius: 12px;
+/* center the whole bar content */
+#waybar {
+  background: transparent;
 }
 
-tooltip label {
-  color: @fg;
-  padding: 6px;
+/* THE pill */
+.modules-center {
+  background: alpha(@surface, 0.75);
+  border: 1px solid alpha(@outline, 0.45);
+  border-radius: 999px;
+
+  padding: 6px 14px;
+  margin: 6px 0 0 0;
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
-/* Workspaces */
+/* make everything inside feel like icons in one row */
+.modules-center > widget > label,
+.modules-center > widget {
+  margin: 0 7px;
+  color: @on_surface;
+}
+
+/* clock */
+#clock {
+  margin-left: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* submap "pill" like the screenshot's small capsule */
+#submap {
+  background: alpha(@inverse_surface, 0.18);
+  border: 1px solid alpha(@outline, 0.35);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin: 0 8px 0 6px;
+  color: @on_surface;
+}
+
+/* workspaces: simple, no big blocks */
 #workspaces {
   background: transparent;
-  padding: 0;
-  margin: 0 10px 0 10px;
-  border: none;
-  box-shadow: none;
+  margin: 0 6px;
 }
 
 #workspaces button {
-  padding: 0px 6px;
-  margin: 0px 2px;
-  border-radius: 16px;
-  color: @grey0;
   background: transparent;
-  transition: all 0.3s ease-in-out;
+  border-radius: 999px;
+  padding: 0 6px;
+  margin: 0 1px;
+  color: alpha(@on_surface, 0.55);
+  transition: all 120ms ease-in-out;
 }
 
 #workspaces button.active {
-  background: linear-gradient(135deg, @blue 0%, @purple 50%, @red 100%);
-  color: @bg0;
-  min-width: 40px;
-  transition: all 0.3s ease-in-out;
+  color: @on_surface;
 }
 
 #workspaces button:hover {
-  background-color: @bg3;
-  color: @fg;
+  color: @on_surface;
+  background: alpha(@outline, 0.18);
 }
 
-#workspaces button.urgent {
-  background-color: @red;
-  color: @bg0;
-}
-/*----------Moonveil center-------------*/
-#custom-moonveil  {
-    margin-right: 6px;
-    background-image: url("../../../assets/moonveil.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    padding-right: 15px;
-}
+/* modules as plain icons */
+#pulseaudio { color: @on_surface; }
+#network    { color: @on_surface; }
+#battery    { color: @on_surface; }
 
-
-/* Modules */
-#custom-media,
-#window,
-#custom-launcher,
-#network,
-#power-profiles-daemon,
-#custom-home-folder {
-  background-color: @bg0;
-  padding: 0 8px;
-  margin: 0 5px;
-  border-radius: 0;
-  border: none;
-  box-shadow: none;
- 
+/* your moonveil icon */
+#custom-moonveil {
+  margin: 0 6px;
+  background-image: url("../../../assets/moonveil.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding: 0 10px;
 }
 
-#submap {
-  color: @aqua;
+/* tooltip (optional) */
+tooltip {
+  background: alpha(@surface, 0.95);
+  border: 1px solid alpha(@outline, 0.35);
+  border-radius: 12px;
 }
-
-#custom-launcher {
-  color: @fg;
-}
-
-#clock {
-  color: @fg;
-  margin: 0;
-}
-
-#custom-media {
-  color: @aqua;
-  margin: 0 0 0 10px;
-}
-
-#custom-weather {
-  color: @fg;
+tooltip label {
+  color: @on_surface;
+  padding: 6px 8px;
 }
