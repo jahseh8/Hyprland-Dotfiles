@@ -15,7 +15,6 @@
     "pulseaudio",
     "network",
     "custom/moonveil",
-    "battery"
   ],
   "modules-right": [],
 
@@ -74,18 +73,6 @@
     },
     "tooltip": false,
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-  },
-
-  /*---------------Battery----------------*/
-  "battery": {
-    "interval": 15,
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon}",
-    "format-icons": ["", "", "", "", ""],
-    "tooltip": false
   },
 
   /*-----------Moonveil Center------------*/
